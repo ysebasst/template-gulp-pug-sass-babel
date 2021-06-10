@@ -1,0 +1,14 @@
+mixin article({title, priceMontly, priceAnnualy, infoItems, extraClass=''})
+  article(class=`our-pricing-articles__item ${extraClass}`.trimRight())
+    h3.our-pricing-articles__title= title
+    p.our-pricing-articles__price
+      span.our-pricing-articles__price--monthly
+        span.price-dolar $
+        span.price-number= priceMontly
+      span.our-pricing-articles__price--annualy
+        span.price-dolar $
+        span.price-number= priceAnnualy
+    ul.our-pricing-articles-info 
+      each itemInfo in infoItems
+        li.our-pricing-articles-info__item= itemInfo
+    a.our-pricing-articles__button(href="#") Learn More 

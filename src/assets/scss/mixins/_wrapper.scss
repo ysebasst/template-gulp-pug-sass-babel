@@ -1,0 +1,13 @@
+@use "media-querys" as *;
+
+@mixin wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 327px;
+  @include fromTablet {
+    max-width: 720px;
+  }
+  @include fromDesktop {
+    max-width: 1110px;
+  }
+}

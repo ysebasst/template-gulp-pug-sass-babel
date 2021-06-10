@@ -1,0 +1,37 @@
+@use "../config/variables" as var;
+
+// ### ### MOBILE ### ###
+@mixin toMobile {
+  @media screen and (max-width: var.$mobile - 1px) {
+    @content;
+  }
+}
+@mixin fromMobile {
+  @media screen and (min-width: var.$mobile) {
+    @content;
+  }
+}
+
+// ### ### TABLET ### ###
+@mixin toTablet {
+  @media screen and (max-width: var.$tablet - 1px) {
+    @content;
+  }
+}
+@mixin fromTablet {
+  @media screen and (min-width: var.$tablet) {
+    @content;
+  }
+}
+
+// ### ### DESKTOP ### ###
+@mixin toDesktop {
+  @media screen and (max-width: var.$desktop - 1px) {
+    @content;
+  }
+}
+@mixin fromDesktop {
+  @media screen and (min-width: var.$desktop) {
+    @content;
+  }
+}

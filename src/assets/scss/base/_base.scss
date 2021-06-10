@@ -1,0 +1,23 @@
+@use "../config/variables" as var;
+
+*,
+*::after *::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var.$font-size-default;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
