@@ -8,6 +8,7 @@ import sass from "gulp-dart-sass";
 import autoprefixer from "gulp-autoprefixer";
 import rename from "gulp-rename";
 import browserSync from "browser-sync";
+import imagemin from "gulp-imagemin";
 
 const server = browserSync.create();
 
@@ -44,6 +45,20 @@ gulp.task("sass", () => {
       })
     )
     .pipe(gulp.dest("./public/assets/css"));
+});
+
+gulp.task("imagemin", () => {
+  return gulp
+    .src("./src/assets/images/*")
+    .pipe(plumber())
+    .pipe(
+      imagemin([
+        imagemin.gifsicle({ interlaced: true }),
+        imagemin.mozjpeg({ quality: 30, progressive: true }),
+        imagemin.optipng({ optimizationLevel: 1 }),
+      ])
+    )
+    .pipe(gulp.dest("./public/assets/images"));
 });
 
 gulp.task("default", () => {
