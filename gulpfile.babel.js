@@ -15,6 +15,7 @@ gulp.task("babel", () => {
   console.log("### ### ### JS ### ### ###");
   return gulp
     .src("./src/assets/js/**/*.js")
+    .pipe(plumber())
     .pipe(babel())
     .pipe(concat("scripts-min.js"))
     .pipe(terser())
@@ -25,6 +26,7 @@ gulp.task("pug", () => {
   console.log("### ### ### PUG ### ### ###");
   return gulp
     .src("./src/views/pages/*.pug")
+    .pipe(plumber())
     .pipe(pug({ pretty: true }))
     .pipe(gulp.dest("./public"));
 });
@@ -33,6 +35,7 @@ gulp.task("sass", () => {
   console.log("### ### ### SASS ### ### ###");
   return gulp
     .src("./src/assets/scss/styles.scss")
+    .pipe(plumber())
     .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
     .pipe(autoprefixer())
     .pipe(
